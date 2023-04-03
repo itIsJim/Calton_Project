@@ -18,9 +18,9 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import {makeStyles} from "@mui/styles";
-import {IconButton} from "@mui/material";
+import {Avatar} from "@mui/material";
 
-const drawerWidth = 80;
+const drawerWidth = 90;
 
 
 const useStyle = makeStyles({
@@ -28,7 +28,7 @@ const useStyle = makeStyles({
         color:"white"
     },
     settingIcon: {
-        margin:"12rem 0 0 0",
+        margin:"7rem 0 0 0",
         color:"white"
     },
     listItemButton: {
@@ -54,6 +54,11 @@ const useStyle = makeStyles({
     const drawer = (
         <div className={classes.drawerDiv}>
             <List>
+                <ListItem>
+                    <ListItemIcon>
+                       <Avatar sx={{margin:'20px 0 0 10px'}} alt='dappr-logo' src={process.env.PUBLIC_URL + '/dappr_logo.png'}/>
+                    </ListItemIcon>
+                </ListItem>
                 {NAVBAR_ICON.map((icon, index) => (
                     <ListItem key={index} >
                         <ListItemButton className={classes.listItemButton}>
@@ -94,7 +99,7 @@ const useStyle = makeStyles({
                     variant="permanent"
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { margin: "0 0 0 1rem", boxSizing: 'border-box', width: drawerWidth, height: 'calc(100% - 40px)', top:20, bottom :20, borderRadius:5, backgroundColor: "black" },
+                        '& .MuiDrawer-paper': { margin: "0 0 0 1.5rem", boxSizing: 'border-box', width: drawerWidth, height: 'calc(100% - 40px)', top:20, bottom :20, borderRadius:5, backgroundColor: "black" },
                     }}
                     open
                 >

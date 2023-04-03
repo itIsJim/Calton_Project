@@ -2,6 +2,7 @@ import {Container, Grid, IconButton, Typography} from "@mui/material";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 
+
 const theme = createTheme({
     typography: {
         subtitle1: {
@@ -22,7 +23,11 @@ export default function ToDoList({icon, title, time}) {
                 <Grid item>
                     <Grid container>
                         <Grid item>
-                            <IconButton aria-label="to-do-list-icon-type" size="large" sx={{ borderRadius:'16px', backgroundColor:'black', color:'white' }}>
+                            <IconButton aria-label="to-do-list-icon-type" size="large" sx={{ borderRadius:'16px', backgroundColor:'black', color:'white',
+                                '&:hover': {
+                                backgroundColor:'#D1E2E8 !important',
+                                    color:'black'
+                            } }}>
                                 {icon}
                             </IconButton>
                         </Grid>

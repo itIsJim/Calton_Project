@@ -1,10 +1,11 @@
 import { Paper, Typography, Grid} from "@mui/material";
-import {makeStyles,} from "@mui/styles"
+import {makeStyles, ThemeProvider,} from "@mui/styles"
 import { AxisBottom, AxisLeft } from '@visx/axis';
 import { curveBasisOpen} from '@visx/curve';
 import { scaleLinear, scaleBand } from '@visx/scale';
 import { Line } from '@visx/shape';
 import {Group} from '@visx/group'
+import {createTheme} from "@mui/material/styles";
 
 const useStyle = makeStyles({
     paper: {
@@ -16,6 +17,7 @@ const useStyle = makeStyles({
         width: "3rem"
     }
 })
+
 
 const data = [
     { date: 'Feb 14', amount: 5000 },
@@ -49,15 +51,13 @@ const yScale = scaleLinear({
 
 const Chart = () => {
 
-    const classes = useStyle()
-
     return (
-        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px'}} >
+        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', aspectRatio:'16/9'}} >
             <Grid container>
                 <Grid item>
-                    <Grid container sx={{ margin: '20px 0 0 40px'}}>
+                    <Grid container sx={{ margin: '20px 0 0 40px'}} flexDirection='row'>
                         <Typography variant="h6" sx={{ fontWeight: 'bold'}}>Revenue</Typography>
-                        <Typography variant="subtitle1" sx={{ marginLeft: '160px'}}>Last 7 days VS prior work</Typography>
+                        <Typography variant="subtitle1" sx={{ marginTop:'5px',marginLeft: '12rem', fontWeight:'400', fontSize:15}}>Last 7 days VS prior work</Typography>
                     </Grid>
                 </Grid>
                 <Grid item>
@@ -121,9 +121,6 @@ const Chart = () => {
 
 
 export default function LineChart () {
-
-    const classes = useStyle()
-
     return (
             <Grid item>
                 <Chart/>

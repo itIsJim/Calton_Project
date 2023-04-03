@@ -1,39 +1,65 @@
-import { Paper, Typography, Grid} from "@mui/material";
+import {Paper, Typography, Grid, Icon, IconButton} from "@mui/material";
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import {makeStyles,} from "@mui/styles"
+import {makeStyles, withStyles,} from "@mui/styles"
+import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 const useStyle = makeStyles({
     numIconPaper: {
-        padding:"20px",
-        height: "9rem",
-        width: "9rem"
+        padding:"24px",
+        aspectRatio :'1/1'
     },
-
+    icon: {
+        fontSize: '50px'
+    },
+    moreIcon: {
+        color:'black !important',
+        '&:hover': {
+            color: 'white !important',
+            backgroundColor:'black !important'
+        }
+    }
 });
 
+const theme = createTheme({
+    typography: {
+        h6: {
+            fontSize:25,
+            fontWeight: 600
+        },
+        caption: {
+            fontSize: 12,
+            fontWeight: 400,
+        },
+    }
+})
 
 export default function NumIconCard({num,text,icon}) {
     const classes = useStyle();
 
+
     return (
-        <Grid item xs={3} >
-            <Paper className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", }}>
-                <Grid container>
-                    <Grid item xs={8}>
-                        {icon}
+        <ThemeProvider theme={theme}>
+            <Grid item xs={3} >
+                <Paper xs={12} sm={4} className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", }}>
+                    <Grid container sx={{padding: '5px' }}>
+                        <Grid item xs={8}>
+                            {icon}
+                        </Grid>
+                        <Grid item xs={4}>
+                            <IconButton aria-label="more-info" className={classes.moreIcon}>
+                                <MoreVertOutlinedIcon/>
+                            </IconButton>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={4}>
-                        <MoreVertOutlinedIcon/>
+                    <Grid container spacing={1} >
+                        <Grid item>
+                            <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop:'5px' }}>{num}</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="caption" >{text}</Typography>
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{num}</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="caption">{text}</Typography>
-                    </Grid>
-                </Grid>
-            </Paper>
-        </Grid>
+                </Paper>
+            </Grid>
+        </ThemeProvider>
     )}

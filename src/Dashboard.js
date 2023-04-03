@@ -8,9 +8,11 @@ import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import {makeStyles} from "@mui/styles";
 import LineChart from "./card_components/LineChart";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import FormationStatus from "./card_components/FormationStatus";
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import ToDoList from "./card_components/ToDoList";
 import Notification from "./card_components/Notification";
 import Navbar from "./Navbar";
@@ -18,22 +20,22 @@ import UserInfo from "./UserInfo";
 
 const NUM_ICON_VALUES = [
     {
-        icon:<AccountBalanceWalletOutlinedIcon/>,
+        icon:<AccountBalanceWalletOutlinedIcon fontSize="large"/>,
         num: 143624.00,
         text: "Your bank balance"
     },
     {
-        icon: <PieChartOutlineOutlinedIcon/>,
+        icon: <PieChartOutlineOutlinedIcon fontSize="large"/>,
         num:12,
         text: "Uncategorized transaction"
     },
     {
-        icon: <WorkHistoryOutlinedIcon/>,
+        icon: <WorkHistoryOutlinedIcon fontSize="large"/>,
         num:7,
         text: "Employees working today"
     },
     {
-        icon: <PaymentOutlinedIcon/>,
+        icon: <PaymentOutlinedIcon fontSize="large"/>,
         num:3287.49,
         text: "This week's card spending"
     },
@@ -42,35 +44,35 @@ const NUM_DIFFERENCE = [
     {
         title:"New clients",
         num: 54,
-        diff: 18
+        diff: 18.7
     },
     {
         title:"Invoices overdue",
         num: 6,
-        diff: -27
+        diff: 2.7
     },
 ]
 const EMAIL_VALUES = [
     {
-        icon:<AccountCircleIcon/>,
+        icon:'profile1.png',
         name: "Hannah Morgan",
         title: "Meeting scheduled",
         time: "1:24 PM"
     },
     {
-        icon: <AccountCircleIcon/>,
+        icon: 'profile2.png',
         name: "Megan Clark",
         title: "Updating on marking campaign",
         time: "12:32 PM"
     },
     {
-        icon: <AccountCircleIcon/>,
+        icon: 'profile3.png',
         name: "Brandon Williams",
         title: "Design 2.0 is about to launch",
         time: "Yesterday at 8:57 PM"
     },
     {
-        icon: <AccountCircleIcon/>,
+        icon: 'profile4.png',
         name: "Reid Smith",
         title: "My friend Julie loves Dappr!",
         time: "Yesterday at 8:49 PM"
@@ -78,7 +80,7 @@ const EMAIL_VALUES = [
 ]
 const TO_DO_LIST = [
     {
-        icon:<AccessTimeOutlinedIcon/>,
+        icon:<ReceiptOutlinedIcon/>,
         title: "Run Payroll",
         time: "Mar 4 at 6:00 pm"
     },
@@ -88,12 +90,12 @@ const TO_DO_LIST = [
         time: "Mar 7 at 6:00pm"
     },
     {
-        icon:<AccessTimeOutlinedIcon/>,
+        icon:<AssignmentOutlinedIcon/>,
         title: "Sign board resolution",
         time: "Mar 12 at 6:00pm"
     },
     {
-        icon:<AccessTimeOutlinedIcon/>,
+        icon:<AssignmentTurnedInOutlinedIcon/>,
         title: "Finish onboarding Tony",
         time: "Mar 12 at 6:00pm"
     },
@@ -107,7 +109,7 @@ const USER_NAME = 'James'
 
 const useStyle = makeStyles({
     dashboard: {
-        padding:"3rem 3rem 3rem 5rem",
+        padding:"3rem 3rem 3rem 4rem",
         backgroundColor: "rgb(224,237,241)",
         height: "100%",
         display:"flex"
@@ -119,8 +121,6 @@ const useStyle = makeStyles({
         margin: "20px 0px"
     },
 })
-
-
 
 export default function Dashboard() {
 
