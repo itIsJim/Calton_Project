@@ -9,6 +9,7 @@ This is an interview Project for the second stage of interview with Calton, the 
 ###### this repo is an additional codebase for potential collaboration purposes since it is not part of the requirement
 
 ## Page Screenshot
+![calton_project](https://user-images.githubusercontent.com/57381746/229883518-d5473a63-23dc-43ce-9ebf-32e1eebab1ff.jpg)
 
 
 ## Available Scripts
