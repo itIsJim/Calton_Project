@@ -3,7 +3,6 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import * as React from "react";
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 export default function UserInfo({userName}) {
@@ -13,7 +12,7 @@ export default function UserInfo({userName}) {
                 <Grid item>
                     <Typography  sx={{ fontWeight: 'bold' }} variant="h4">{'Good Morning, ' + userName + '!'}</Typography>
                 </Grid>
-                <Grid item sx={{marginLeft:'34rem'}}>
+                <Grid item sx={{marginLeft:'36rem'}}>
                     <Grid container direction="row">
                         <Grid item>
                             <IconButton>
