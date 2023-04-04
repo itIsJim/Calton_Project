@@ -1,11 +1,77 @@
 import { Paper, Typography, Grid} from "@mui/material";
-import {makeStyles, ThemeProvider,} from "@mui/styles"
-import { AxisBottom, AxisLeft } from '@visx/axis';
-import { curveBasisOpen} from '@visx/curve';
-import { scaleLinear, scaleBand } from '@visx/scale';
-import { Line } from '@visx/shape';
-import {Group} from '@visx/group'
-import {createTheme} from "@mui/material/styles";
+import {makeStyles} from "@mui/styles"
+import MyGraph from './Graph'
+
+const data = [
+    {
+        "id": "Last Week",
+        "color": "hsl(12, 70%, 50%)",
+        "data": [
+            {
+                "x": "Feb 14",
+                "y": 18913
+            },
+            {
+                "x": "Feb 15",
+                "y": 14440
+            },
+            {
+                "x": "Feb 16",
+                "y": 17167
+            },
+            {
+                "x": "Feb 17",
+                "y": 15106
+            },
+            {
+                "x": "Feb 18",
+                "y": 11284
+            },
+            {
+                "x": "Feb 19",
+                "y": 13253
+            },
+            {
+                "x": "Feb 20",
+                "y": 10071
+            },
+        ]
+    },
+    {
+        "id": "This Week",
+        "color": "hsl(0, 70%, 50%)",
+        "data": [
+            {
+                "x": "Feb 14",
+                "y": 10047
+            },
+            {
+                "x": "Feb 15",
+                "y": 17228
+            },
+            {
+                "x": "Feb 16",
+                "y": 16671
+            },
+            {
+                "x": "Feb 17",
+                "y": 10728
+            },
+            {
+                "x": "Feb 18",
+                "y": 11087
+            },
+            {
+                "x": "Feb 19",
+                "y": 19639
+            },
+            {
+                "x": "Feb 20",
+                "y": 12538
+            },
+        ]
+    },
+]
 
 const useStyle = makeStyles({
     paper: {
@@ -19,100 +85,22 @@ const useStyle = makeStyles({
 })
 
 
-const data = [
-    { date: 'Feb 14', amount: 5000 },
-    { date: 'Feb 15', amount: 6000 },
-    { date: 'Feb 16', amount: 5500 },
-    { date: 'Feb 17', amount: 8000 },
-    { date: 'Feb 18', amount: 4000 },
-    { date: 'Feb 19', amount: 12000 },
-    { date: 'Feb 20', amount: 10000 },
-];
-
-
-const height = 235;
-const width = 500;
-const margin = { top: 0, bottom: 50, left: 0, right: 100 };
-
-const xScale = scaleBand({
-    range: [margin.left, width - margin.right],
-    round: true,
-    domain: data.map((d) => d.date),
-    padding: 0.2,
-});
-
-const yScale = scaleLinear({
-    range: [height - margin.bottom, margin.top],
-    round: true,
-    domain: [0, 20000],
-    padding: 0.2,
-    tickFormat: "10k",
-});
+const width = 900;
+const height = 200;
 
 const Chart = () => {
 
     return (
-        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', aspectRatio:'16/9'}} >
+        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', width: '37.5vw', aspectRatio:'1.89/1'}} >
             <Grid container>
                 <Grid item>
-                    <Grid container sx={{ margin: '20px 0 0 40px'}} flexDirection='row'>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold'}}>Revenue</Typography>
-                        <Typography variant="subtitle1" sx={{ marginTop:'5px',marginLeft: '12rem', fontWeight:'400', fontSize:15}}>Last 7 days VS prior work</Typography>
+                    <Grid container alignItems='self-end' sx={{padding: '20px 0 0 30px'}}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', marginRight:'13rem'}}>Revenue</Typography>
+                        <Typography variant="subtitle1" sx={{ fontWeight:'400', fontSize:15}}>Last 7 days VS prior work</Typography>
                     </Grid>
                 </Grid>
-                <Grid item>
-                    <Grid container justifyContent="center">
-                        <Grid item xs={10}>
-                            <svg width={width} height={height}>
-                                <Group>
-                                    <Line
-                                        from={{ x: xScale(data[0].date), y: yScale(data[0].amount) }}
-                                        to={{ x: xScale(data[data.length - 1].date), y: yScale(data[data.length - 1].amount) }}
-                                        stroke="#0077c2"
-                                        strokeWidth={2}
-                                        curve={curveBasisOpen}
-                                    />
-
-                                    {data.map((d) => (
-                                        <circle
-                                            cx={xScale(d.date)}
-                                            cy={yScale(d.amount)}
-                                            r={6}
-                                            fill="#0077c2"
-                                            stroke="#0077c2"
-                                            strokeWidth={2}
-                                            key={d.date}
-                                        />
-                                    ))}
-
-                                    <AxisBottom
-                                        top={height - margin.bottom}
-                                        scale={xScale}
-                                        stroke="#aaa"
-                                        tickStroke="#aaa"
-                                        tickLabelProps={() => ({
-                                            fill: '#aaa',
-                                            fontSize: 11,
-                                            textAnchor: 'middle',
-                                        })}
-                                    />
-
-                                    <AxisLeft
-                                        scale={yScale}
-                                        stroke="#aaa"
-                                        tickStroke="#aaa"
-                                        tickLabelProps={() => ({
-                                            fill: '#aaa',
-                                            fontSize: 11,
-                                            textAnchor: 'end',
-                                            dx: '-0.25em',
-                                            dy: '0.25em',
-                                        })}
-                                    />
-                                </Group>
-                            </svg>
-                        </Grid>
-                    </Grid>
+                <Grid item width={width} height={height}>
+                    <MyGraph data={data}/>
                 </Grid>
             </Grid>
         </Paper>
