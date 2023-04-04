@@ -185,7 +185,7 @@ export default function Dashboard() {
                                     <Grid container spacing={6} flexDirection="row">
                                         {/*formation status*/}
                                         <Grid item>
-                                            <FormationStatus progress={50}/>
+                                            <FormationStatus progress={70}/>
                                         </Grid>
                                         {/*to-do list*/}
                                         <Grid item>

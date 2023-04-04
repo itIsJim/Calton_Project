@@ -28,6 +28,7 @@ const usesStyle= makeStyles({
         borderRadius: theme.spacing(1),
         '& .MuiLinearProgress-bar': {
             backgroundColor: '#E0EDF1',
+            borderRadius: theme.spacing(1),
         }
     },
     button: {
@@ -59,7 +60,7 @@ export default function FormationStatus ({progress}) {
                             <LinearProgress className={classes.lineProgress} variant='determinate' value={progress}/>
                             <Grid item sx={{textAlign:'center', margin: '20px 0'}}>
                                 <Typography variant="subtitle1">Estimated processing</Typography>
-                                <Typography variant="caption">{progress >= 50 ? "4-5 business days": "> 7 business days"}</Typography>
+                                <Typography variant="caption">{progress >= 70 ? "4-5 business days": ">7 business days"}</Typography>
                             </Grid>
                             <Button className={classes.button} variant="contained" sx={{ borderRadius:2, width:'18rem'}}><Typography variant="subtitle1">View Status</Typography></Button>
                         </Grid>
