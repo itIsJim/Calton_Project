@@ -109,16 +109,20 @@ const USER_NAME = 'James'
 
 const useStyle = makeStyles({
     dashboard: {
-        padding:"3rem 3rem 3rem 4rem",
+        padding:"3rem 0rem 3rem 4rem",
         backgroundColor: "rgb(224,237,241)",
         height: "100%",
+        width:'auto 100%',
         display:"flex"
     },
     base: {
         height:"100%",
     },
+    firstRow: {
+        margin: "0 0 1rem 0"
+    },
     secondRow: {
-        margin: "20px 0px"
+        margin: "0 0 1.5rem 0"
     },
 })
 
@@ -144,7 +148,7 @@ export default function Dashboard() {
                                 <Grid item xs={8}>
                                     <Grid container flexDirection="row">
                                         {/*first row*/}
-                                        <Grid container spacing={2}>
+                                        <Grid container spacing={2} className={classes.firstRow}>
                                             {
                                                 NUM_ICON_VALUES.map((item, index)=>{
                                                     return <NumIconCard num={item.num} text={item.text} icon={item.icon}/>
@@ -152,7 +156,7 @@ export default function Dashboard() {
                                             }
                                         </Grid>
                                         {/* second row */}
-                                        <Grid container className={classes.secondRow}>
+                                        <Grid container className={classes.secondRow} flexDirection='row' spacing={2}>
                                             <Grid item xs={4}>
                                                 <Grid container direction="column" spacing={2}>
                                                     {
@@ -169,7 +173,7 @@ export default function Dashboard() {
                                         </Grid>
                                         {/* third row */}
                                         <Grid container flexDirection='column'>
-                                            <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'20px 0px 0px 40px'}}>
+                                            <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'1.2rem 0 0 2.4rem'}}>
                                                 <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom:'1rem' }}>Recent emails</Typography>
                                                 {
                                                     EMAIL_VALUES.map((item) => {
@@ -184,14 +188,16 @@ export default function Dashboard() {
                                 <Grid item xs={4}>
                                     <Grid container spacing={6} flexDirection="row">
                                         {/*formation status*/}
-                                        <Grid item>
-                                            <FormationStatus progress={70}/>
+                                        <Grid item sx={{width:'100%'}}>
+                                            <Grid container sx={{width:'85%'}}>
+                                                <FormationStatus progress={70}/>
+                                            </Grid>
                                         </Grid>
                                         {/*to-do list*/}
                                         <Grid item>
                                             <Grid container>
-                                                <Typography variant="h6" sx={{marginBottom:"20px", fontWeight:'bold'}}>Your to-Do list</Typography>
-                                                <Grid container flexDirection="row" spacing={2}>
+                                                <Typography variant="h6" sx={{marginBottom:"1.2rem", fontWeight:'bold'}}>Your to-Do list</Typography>
+                                                <Grid container flexDirection="column" spacing={2}>
                                                     {
                                                         TO_DO_LIST.map((item)=> {
                                                             return <ToDoList icon={item.icon} title={item.title} time={item.time}/>
@@ -201,8 +207,10 @@ export default function Dashboard() {
                                             </Grid>
                                         </Grid>
                                         {/*event notification*/}
-                                        <Grid item>
-                                            <Notification title={LATEST_NOTIFICATION_OBJ.title} time={LATEST_NOTIFICATION_OBJ.time} details={LATEST_NOTIFICATION_OBJ.details}/>
+                                        <Grid item sx={{width:'100%'}}>
+                                            <Grid container sx={{width:'85%'}}>
+                                                <Notification title={LATEST_NOTIFICATION_OBJ.title} time={LATEST_NOTIFICATION_OBJ.time} details={LATEST_NOTIFICATION_OBJ.details}/>
+                                            </Grid>
                                         </Grid>
                                     </Grid>
                                 </Grid>

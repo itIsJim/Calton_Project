@@ -3,9 +3,7 @@ import {makeStyles,} from "@mui/styles"
 
 const useStyle = makeStyles({
     numIconPaper: {
-        padding:"20px 15px 20px 30px",
-        width: "12rem",
-        height:"6rem"
+        padding:"1.3rem 1.5rem 2rem 2.5rem",
     }
 })
 

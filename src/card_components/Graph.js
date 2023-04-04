@@ -4,14 +4,15 @@ const MyGraph = ({ data }) => {
     return (
         <ResponsiveLine
             data={data}
-            margin={{ top: 30, right: 50, bottom: 15, left: 60 }}
-            xScale={{ type: 'point' }}
+            margin={{ top: 30, right: 70, bottom: 25, left: 60 }}
+            xScale={{ type: 'point', clamp: true }}
             yScale={{
                 type: 'linear',
                 min: '0',
                 max: 'auto',
                 stacked: true,
-                reverse: false
+                reverse: false,
+                clamp: true
             }}
             yFormat=" >-.2f"
             curve="natural"

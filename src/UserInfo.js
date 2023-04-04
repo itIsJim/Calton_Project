@@ -12,7 +12,7 @@ export default function UserInfo({userName}) {
                 <Grid item>
                     <Typography  sx={{ fontWeight: 'bold' }} variant="h4">{'Good Morning, ' + userName + '!'}</Typography>
                 </Grid>
-                <Grid item sx={{marginLeft:'36rem'}}>
+                <Grid item sx={{marginLeft:'33rem'}}>
                     <Grid container direction="row">
                         <Grid item>
                             <IconButton>
@@ -31,7 +31,7 @@ export default function UserInfo({userName}) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item sx={{marginLeft: '10px'}}>
+                <Grid item sx={{marginLeft: '.5rem'}}>
                     <Avatar alt="user-profile" src={process.env.PUBLIC_URL + '/calton_logo.jpg'} />
                 </Grid>
                 <Grid item>

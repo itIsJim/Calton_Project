@@ -37,7 +37,7 @@ const usesStyle= makeStyles({
         '&:hover': {
            backgroundColor:'#D1E2E8 !important'
         },
-    }
+    },
 })
 
 
@@ -47,7 +47,7 @@ export default function FormationStatus ({progress}) {
 
     return (
         <ThemeProvider theme={theme}>
-            <Paper elevation={0} sx={{height:'14rem', width:'18rem', borderRadius: 8, backgroundColor: 'black', padding:'25px', color:'white'}}>
+            <Paper elevation={0} sx={{height:'14rem', width:'100%', borderRadius: 8, backgroundColor: 'black', padding:'1.5rem', color:'white'}}>
                 <Grid container flexDirection="column" >
                     <Grid item>
                         <Typography variant="h6">Formation Status</Typography>
@@ -58,11 +58,13 @@ export default function FormationStatus ({progress}) {
                     <Grid item>
                         <Grid container flexDirection="column" alignItems="center">
                             <LinearProgress className={classes.lineProgress} variant='determinate' value={progress}/>
-                            <Grid item sx={{textAlign:'center', margin: '20px 0'}}>
+                            <Grid item sx={{textAlign:'center', margin: '1.2rem 0'}}>
                                 <Typography variant="subtitle1">Estimated processing</Typography>
                                 <Typography variant="caption">{progress >= 70 ? "4-5 business days": ">7 business days"}</Typography>
                             </Grid>
-                            <Button className={classes.button} variant="contained" sx={{ borderRadius:2, width:'18rem'}}><Typography variant="subtitle1">View Status</Typography></Button>
+                            <Grid item sx={{width:'100%'}}>
+                                <Button className={classes.button} variant="contained" sx={{ borderRadius:2, width:'100%'}}><Typography variant="subtitle1">View Status</Typography></Button>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>

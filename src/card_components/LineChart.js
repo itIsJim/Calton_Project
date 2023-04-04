@@ -1,5 +1,4 @@
 import { Paper, Typography, Grid} from "@mui/material";
-import {makeStyles} from "@mui/styles"
 import MyGraph from './Graph'
 
 const data = [
@@ -73,28 +72,17 @@ const data = [
     },
 ]
 
-const useStyle = makeStyles({
-    paper: {
-        height:"6rem",
-        width: "30rem"
-    },
-    graph: {
-        height: "6rem",
-        width: "3rem"
-    }
-})
 
-
-const width = 900;
-const height = 200;
+const width = '40rem';
+const height = '13rem';
 
 const Chart = () => {
 
     return (
-        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', width: '37.5vw', aspectRatio:'1.89/1'}} >
+        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', width: '100%', height:'100%', aspectRatio:'1.88/1'}} >
             <Grid container>
                 <Grid item>
-                    <Grid container alignItems='self-end' sx={{padding: '20px 0 0 30px'}}>
+                    <Grid container alignItems='self-end' sx={{padding: '1rem 0 0 1.5rem'}}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', marginRight:'13rem'}}>Revenue</Typography>
                         <Typography variant="subtitle1" sx={{ fontWeight:'400', fontSize:15}}>Last 7 days VS prior work</Typography>
                     </Grid>
@@ -110,7 +98,7 @@ const Chart = () => {
 
 export default function LineChart () {
     return (
-            <Grid item>
+            <Grid container sx={{width:'100%', height:'100%'}}>
                 <Chart/>
             </Grid>
     )
