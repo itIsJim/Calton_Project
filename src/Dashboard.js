@@ -108,7 +108,7 @@ const LATEST_NOTIFICATION_OBJ = {
     time:"Feb 22 at 6:00 PM",
     details: "you have been invited to attend a meeting at the Board Directors"
 }
-const USER_NAME = 'Calton'
+const USER_NAME = 'Calton' // Note: original design specify James
 
 const useStyle = makeStyles({
     dashboard: {
@@ -162,7 +162,7 @@ export default function Dashboard() {
                                 {/* user left view */}
                                 <Grid item xs={8}>
                                     <Grid container flexDirection="row">
-                                        {/*first row*/}
+                                        {/*first row - Information number*/}
                                         <Grid container spacing={2} className={classes.firstRow}>
                                             {
                                                 NUM_ICON_VALUES.map((item, index)=>{
@@ -174,7 +174,7 @@ export default function Dashboard() {
                                                 })
                                             }
                                         </Grid>
-                                        {/* second row */}
+                                        {/* second row - Chart and growth cards */}
                                         <Grid container className={classes.secondRow} flexDirection='row' spacing={2}>
                                             <Grid item xs={4}>
                                                 <Grid container direction="column" spacing={2}>
@@ -194,7 +194,7 @@ export default function Dashboard() {
                                                 <LineChart/>
                                             </Grid>
                                         </Grid>
-                                        {/* third row */}
+                                        {/* third row - Recent emails */}
                                         <Grid container flexDirection='column'>
                                             <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'1.2rem 0 0 2.4rem'}}>
                                                 <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom:'1rem' }}>Recent emails</Typography>
@@ -248,7 +248,6 @@ export default function Dashboard() {
                             </Grid>
                         </Grid>
                 </Grid>
-
         </div>
     </Paper>
     )}
