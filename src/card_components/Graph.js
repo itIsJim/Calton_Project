@@ -1,8 +1,10 @@
 import { ResponsiveLine } from '@nivo/line'
 
 const MyGraph = ({ data }) => {
+
     return (
         <ResponsiveLine
+            onMouseMove={()=>console.log('x')}
             data={data}
             margin={{ top: 30, right: 70, bottom: 25, left: 60 }}
             xScale={{ type: 'point', clamp: true }}
@@ -39,11 +41,25 @@ const MyGraph = ({ data }) => {
             enableGridX={false}
             colors={['#000000', '#63a2b8']}
             lineWidth={3}
-            enablePoints={false}
-            pointSize={10}
-            pointColor={{ theme: 'background' }}
-            pointBorderWidth={2}
-            pointBorderColor={{ from: 'serieColor' }}
+            enablePoints={true}
+            pointSymbol = {(props) => {
+                return <g>
+                    <circle
+                        r={props.size + 1}
+                        cx={props.x}
+                        cy={props.y}
+                        fill="#ffffff"
+                        stroke={props.borderColor}
+                        strokeWidth={props.borderWidth}
+                    />
+                    <circle
+                        r={(props.size +1) / 3}
+                        cx={props.x}
+                        cy={props.y}
+                        fill="#000000"
+                    />
+                </g>
+            }}
             pointLabelYOffset={-12}
             enableSlices="x"
             crosshairType="x"
@@ -64,7 +80,7 @@ const MyGraph = ({ data }) => {
                             background: 'black',
                             padding: '9px 12px',
                             border: '1px solid #000000',
-                            borderRadius:'1rem'
+                            borderRadius:'1rem',
                         }}
                     >
                         {slice.points.map(point => (

@@ -1,8 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -42,12 +40,6 @@ const useStyle = makeStyles({
 
  export default function NavDrawer(props) {
     const classes = useStyle()
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
 
      const NAVBAR_ICON = [<HomeOutlinedIcon/>, <EqualizerOutlinedIcon/>, <AccountBalanceOutlinedIcon/>, <MailOutlineRoundedIcon/>, <SubscriptionsOutlinedIcon/>, <GroupsOutlinedIcon/>, <DescriptionOutlinedIcon/>, <PaidOutlinedIcon/>]
 
@@ -60,18 +52,27 @@ const useStyle = makeStyles({
                     </ListItemIcon>
                 </ListItem>
                 {NAVBAR_ICON.map((icon, index) => (
-                    <ListItem key={index} >
-                        <ListItemButton className={classes.listItemButton}>
+                    <ListItem key={index} sx={{
+                        '&:hover': {
+                            borderLeft: '5px solid #ffffff',
+                        }
+                    }}>
+                        <ListItemButton className={classes.listItemButton} sx={{width:'100%'}}>
                             <ListItemIcon sx={{color:"white"}}>
                                 {icon}
                             </ListItemIcon>
                         </ListItemButton>
                     </ListItem>
                 ))}
-                <ListItem >
-                    <ListItemButton className={classes.listItemButton}>
+                <ListItem>
+                    <ListItemButton className={classes.listItemButton} >
                         <ListItemIcon>
-                            <SettingsOutlinedIcon className={classes.settingIcon}/>
+                            <SettingsOutlinedIcon
+                                sx={{
+                                    '&:hover': {
+                                        fontSize: '1.7rem'
+                                    }
+                                }} className={classes.settingIcon}/>
                         </ListItemIcon>
                     </ListItemButton>
                 </ListItem>

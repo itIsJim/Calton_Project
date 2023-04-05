@@ -1,7 +1,7 @@
 import NumIconCard from "./card_components/NumIconCard";
 import NumDifferenceCard from "./card_components/NumDifferenceCard";
 import RecentEmail from "./card_components/RecentEmail";
-import {Grid, Paper, Typography} from "@mui/material";
+import {Grid, IconButton, Paper, Typography} from "@mui/material";
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
@@ -17,11 +17,14 @@ import ToDoList from "./card_components/ToDoList";
 import Notification from "./card_components/Notification";
 import Navbar from "./Navbar";
 import UserInfo from "./UserInfo";
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import * as React from "react";
 
 const NUM_ICON_VALUES = [
     {
         icon:<AccountBalanceWalletOutlinedIcon fontSize="large"/>,
-        num: 143624.00,
+        num: '143624',
         text: "Your bank balance"
     },
     {
@@ -36,7 +39,7 @@ const NUM_ICON_VALUES = [
     },
     {
         icon: <PaymentOutlinedIcon fontSize="large"/>,
-        num:3287.49,
+        num:'3287.49',
         text: "This week's card spending"
     },
 ]
@@ -105,7 +108,7 @@ const LATEST_NOTIFICATION_OBJ = {
     time:"Feb 22 at 6:00 PM",
     details: "you have been invited to attend a meeting at the Board Directors"
 }
-const USER_NAME = 'James'
+const USER_NAME = 'Calton'
 
 const useStyle = makeStyles({
     dashboard: {
@@ -141,6 +144,18 @@ export default function Dashboard() {
                         <Grid item>
                             <UserInfo userName={USER_NAME}/>
                         </Grid>
+                        <Grid item>
+                            <Grid container>
+                                <Grid item flexDirection='row' sx={{marginLeft: '50vw'}}>
+                                    <IconButton>
+                                        <KeyboardArrowLeftIcon/>
+                                    </IconButton>
+                                    <IconButton>
+                                        <KeyboardArrowRightIcon/>
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                         {/*userView*/}
                         <Grid item>
                             <Grid container spacing={5}>
@@ -151,7 +166,11 @@ export default function Dashboard() {
                                         <Grid container spacing={2} className={classes.firstRow}>
                                             {
                                                 NUM_ICON_VALUES.map((item, index)=>{
-                                                    return <NumIconCard num={item.num} text={item.text} icon={item.icon}/>
+                                                    return (
+                                                        <Grid item key={index+ 'numIcon'} xs={3}>
+                                                            <NumIconCard num={item.num} text={item.text} icon={item.icon}/>
+                                                        </Grid>
+                                                    )
                                                 })
                                             }
                                         </Grid>
@@ -161,7 +180,11 @@ export default function Dashboard() {
                                                 <Grid container direction="column" spacing={2}>
                                                     {
                                                         NUM_DIFFERENCE.map((item,index)=> {
-                                                            return <NumDifferenceCard title={item.title} num={item.num} difference={item.diff}/>
+                                                            return (
+                                                                <Grid item key={index+'numDiff'} xs={1}>
+                                                                    <NumDifferenceCard  title={item.title} num={item.num} difference={item.diff}/>
+                                                                </Grid>
+                                                                )
 
                                                         })
                                                     }
@@ -176,8 +199,12 @@ export default function Dashboard() {
                                             <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'1.2rem 0 0 2.4rem'}}>
                                                 <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom:'1rem' }}>Recent emails</Typography>
                                                 {
-                                                    EMAIL_VALUES.map((item) => {
-                                                        return <RecentEmail icon={item.icon} name={item.name} title={item.title} time={item.time}/>
+                                                    EMAIL_VALUES.map((item, index) => {
+                                                        return (
+                                                            <Grid item key={index+'recentMail'}>
+                                                                <RecentEmail icon={item.icon} name={item.name} title={item.title} time={item.time}/>
+                                                            </Grid>
+                                                            )
                                                     })
                                                 }
                                             </Paper>
@@ -199,8 +226,12 @@ export default function Dashboard() {
                                                 <Typography variant="h6" sx={{marginBottom:"1.2rem", fontWeight:'bold'}}>Your to-Do list</Typography>
                                                 <Grid container flexDirection="column" spacing={2}>
                                                     {
-                                                        TO_DO_LIST.map((item)=> {
-                                                            return <ToDoList icon={item.icon} title={item.title} time={item.time}/>
+                                                        TO_DO_LIST.map((item, index)=> {
+                                                            return (
+                                                                <Grid item key={index+'todo'}>
+                                                                    <ToDoList icon={item.icon} title={item.title} time={item.time}/>
+                                                                </Grid>
+                                                                )
                                                         })
                                                     }
                                                 </Grid>

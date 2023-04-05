@@ -1,4 +1,4 @@
-import {Paper, Typography, Grid, Icon, IconButton} from "@mui/material";
+import {Paper, Typography, Grid, IconButton} from "@mui/material";
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import {makeStyles} from "@mui/styles"
 import {createTheme, ThemeProvider} from "@mui/material/styles";
@@ -36,11 +36,9 @@ const theme = createTheme({
 export default function NumIconCard({num,text,icon}) {
     const classes = useStyle();
 
-
     return (
         <ThemeProvider theme={theme}>
-            <Grid item xs={3} >
-                <Paper xs={12} sm={4} className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", }}>
+                <Paper  xs={12} sm={4} className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", }}>
                     <Grid container sx={{padding: '5px' }}>
                         <Grid item xs={8}>
                             {icon}
@@ -53,13 +51,12 @@ export default function NumIconCard({num,text,icon}) {
                     </Grid>
                     <Grid container spacing={1} >
                         <Grid item>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop:'5px' }}>{num}</Typography>
+                            <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop:'5px' }}>{typeof num === 'string'? '$'+num:num}</Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant="caption" >{text}</Typography>
                         </Grid>
                     </Grid>
                 </Paper>
-            </Grid>
         </ThemeProvider>
     )}

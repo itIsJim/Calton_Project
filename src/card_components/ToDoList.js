@@ -1,4 +1,4 @@
-import {Container, Grid, IconButton, Typography} from "@mui/material";
+import { Grid, IconButton, Typography} from "@mui/material";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 
@@ -20,7 +20,6 @@ export default function ToDoList({icon, title, time}) {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Grid item>
                     <Grid container>
                         <Grid item>
                             <IconButton aria-label="to-do-list-icon-type" size="large" sx={{ borderRadius:'16px', backgroundColor:'black', color:'white',
@@ -42,7 +41,6 @@ export default function ToDoList({icon, title, time}) {
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
             </ThemeProvider>
         </>
     )
