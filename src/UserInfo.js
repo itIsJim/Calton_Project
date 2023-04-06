@@ -21,7 +21,7 @@ export default function UserInfo({userName}) {
                 <Grid item>
                     <Typography  sx={{ fontWeight: 'bold' }} variant="h4">{'Good Morning, ' + userName + '!'}</Typography>
                 </Grid>
-                <Grid item sx={{marginLeft:'40vmax'}}>
+                <Grid item sx={{marginLeft: '35rem'}}>
                     <Grid container direction="row">
                         <Grid item>
                             <IconButton>

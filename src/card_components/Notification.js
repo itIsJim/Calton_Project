@@ -25,7 +25,7 @@ const theme = createTheme({
 export default function Notification({title, time, details}) {
     return (
         <ThemeProvider theme={theme}>
-            <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: 'black', padding:'20px', width:"100%"}}>
+            <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: 'black', padding:'5%', width:"100%"}}>
                 <Grid container flexDirection='row'>
                     <Grid item>
                         <Grid container flexDirection="column">

@@ -20,7 +20,7 @@ export default function NumDifferenceCard({title, num, difference}) {
                         sx={{
                             height:'2rem',
                             width:'5rem',
-                            margin: '10px 0 0 2rem',
+                            margin: '1rem 0 0 2rem',
                             color:`${title === 'New clients'?'#00ad14 !important':'#b80f00 !important'}`,
                             backgroundColor: `${title === 'New clients'?'#bad7cb !important':'#d8bfcc !important'}`,
                             display: 'flex',

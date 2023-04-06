@@ -21,8 +21,8 @@ const theme = createTheme({
 
 const usesStyle= makeStyles({
     lineProgress: {
-        margin:'10px',
-        padding:'5px',
+        margin:'.5rem',
+        padding:'1.5%',
         width: '90%',
         backgroundColor: '#404040 !important',
         borderRadius: theme.spacing(1),

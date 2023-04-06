@@ -5,11 +5,8 @@ import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 const useStyle = makeStyles({
     numIconPaper: {
-        padding:"24px",
+        padding:"12%",
         aspectRatio :'1/1'
-    },
-    icon: {
-        fontSize: '50px'
     },
     moreIcon: {
         color:'black !important',
@@ -39,8 +36,8 @@ export default function NumIconCard({num,text,icon}) {
 
     return (
         <ThemeProvider theme={theme}>
-                <Paper  xs={12} sm={4} className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", }}>
-                    <Grid container sx={{padding: '5px' }}>
+                <Paper  xs={12} sm={4} className={classes.numIconPaper} elevation={0} square={false} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)" }}>
+                    <Grid container sx={{padding: '1%' }}>
                         <Grid item xs={8}>
                             {icon}
                         </Grid>
@@ -52,7 +49,7 @@ export default function NumIconCard({num,text,icon}) {
                     </Grid>
                     <Grid container spacing={1} >
                         <Grid item>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop:'5px' }}>{typeof num === 'string'? '$'+num:num}</Typography>
+                            <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop:'1%' }}>{typeof num === 'string'? '$'+num:num}</Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant="caption" >{text}</Typography>

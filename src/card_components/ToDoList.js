@@ -20,7 +20,7 @@ export default function ToDoList({icon, title, time}) {
     return (
         <>
             <ThemeProvider theme={theme}>
-                    <Grid container>
+                    <Grid container sx={{marginBottom: '10%'}}>
                         <Grid item>
                             <IconButton aria-label="to-do-list-icon-type" size="large" sx={{ borderRadius:'16px', backgroundColor:'black', color:'white',
                                 '&:hover': {
@@ -31,8 +31,8 @@ export default function ToDoList({icon, title, time}) {
                                 {icon}
                             </IconButton>
                         </Grid>
-                        <Grid item>
-                            <Grid container direction='column' sx={{marginLeft: '10px'}}>
+                        <Grid item sx={{marginLeft: '1rem', height:'1.5rem'}}>
+                            <Grid container direction='column'>
                                 <Grid item>
                                     <Typography variant="subtitle1">{title}</Typography>
                                 </Grid>

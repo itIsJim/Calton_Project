@@ -223,12 +223,12 @@ export default function Dashboard() {
                                         {/*to-do list*/}
                                         <Grid item>
                                             <Grid container>
-                                                <Typography variant="h6" sx={{marginBottom:"1.2rem", fontWeight:'bold'}}>Your to-Do list</Typography>
-                                                <Grid container flexDirection="column" spacing={2}>
+                                                <Typography variant="h6" sx={{marginBottom:"8%", fontWeight:'bold'}}>Your to-Do list</Typography>
+                                                <Grid container flexDirection="column">
                                                     {
                                                         TO_DO_LIST.map((item, index)=> {
                                                             return (
-                                                                <Grid item key={index+'todo'}>
+                                                                <Grid key={index+'todo'}>
                                                                     <ToDoList icon={item.icon} title={item.title} time={item.time}/>
                                                                 </Grid>
                                                                 )
