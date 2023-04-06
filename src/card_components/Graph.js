@@ -4,7 +4,6 @@ const MyGraph = ({ data }) => {
 
     return (
         <ResponsiveLine
-            onMouseMove={()=>console.log('x')}
             data={data}
             margin={{ top: 30, right: 70, bottom: 25, left: 60 }}
             xScale={{ type: 'point', clamp: true }}
@@ -23,7 +22,7 @@ const MyGraph = ({ data }) => {
             axisBottom={{
                 orient: 'bottom',
                 tickSize: 0,
-                tickPadding: 5,
+                tickPadding: 15,
                 tickRotation: 0,
                 legend: '',
                 legendOffset: 36,
@@ -32,10 +31,10 @@ const MyGraph = ({ data }) => {
             axisLeft={{
                 orient: 'left',
                 tickSize: 0,
-                tickPadding: 5,
+                tickPadding: 15,
                 tickRotation: 0,
                 legend: '',
-                legendOffset: -40,
+                legendOffset: -30,
                 legendPosition: 'middle',
             }}
             enableGridX={false}
@@ -60,7 +59,6 @@ const MyGraph = ({ data }) => {
                     />
                 </g>
             }}
-            pointLabelYOffset={-12}
             enableSlices="x"
             crosshairType="x"
             useMesh={true}
@@ -93,7 +91,7 @@ const MyGraph = ({ data }) => {
                                 }}
                             >
                              <span style={{
-                                 color: `${point.serieColor !== '#000000'?point.serieColor: '#b8b8b8'}`
+                                 color: `${point.serieColor !== '#000000'?point.serieColor: '#6b6b6b'}`
                              }}>●</span> {point.serieId}<strong> ${point.data.yFormatted}</strong>
                             </div>
                         ))}

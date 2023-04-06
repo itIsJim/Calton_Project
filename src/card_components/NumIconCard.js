@@ -13,10 +13,11 @@ const useStyle = makeStyles({
     },
     moreIcon: {
         color:'black !important',
+        transition: 'color 0.3s ease , background-color 0.4s ease !important',
         '&:hover': {
             color: 'white !important',
-            backgroundColor:'black !important'
-        }
+            backgroundColor:'black !important',
+        },
     }
 });
 
@@ -27,7 +28,7 @@ const theme = createTheme({
             fontWeight: 600
         },
         caption: {
-            fontSize: 12,
+            fontSize: 15,
             fontWeight: 400,
         },
     }

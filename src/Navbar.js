@@ -34,7 +34,34 @@ const useStyle = makeStyles({
     },
     drawerDiv: {
         alignItems:"center"
-    }
+    },
+    listItem: {
+        position: 'relative',
+        '&::before, &::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            right: 0,
+            width: '4px',
+            backgroundColor: 'transparent',
+            transition: 'background-color 0.2s ease',
+            height: '1rem',
+            marginTop: '1rem'
+        },
+        '&::before': {
+            left: 0,
+            height: 'calc(100% - 2rem)'
+        },
+        '&::after': {
+            right: 0,
+            left: 0,
+            height: 'calc(100% - 2rem)',
+        },
+        '&:hover::before, &:hover::after': {
+            backgroundColor: '#ffffff',
+        },
+    },
 
 })
 
@@ -52,11 +79,7 @@ const useStyle = makeStyles({
                     </ListItemIcon>
                 </ListItem>
                 {NAVBAR_ICON.map((icon, index) => (
-                    <ListItem key={index} sx={{
-                        '&:hover': {
-                            borderLeft: '5px solid #ffffff',
-                        }
-                    }}>
+                    <ListItem key={index} className={classes.listItem}>
                         <ListItemButton className={classes.listItemButton} sx={{width:'100%'}}>
                             <ListItemIcon sx={{color:"white"}}>
                                 {icon}
@@ -70,7 +93,8 @@ const useStyle = makeStyles({
                             <SettingsOutlinedIcon
                                 sx={{
                                     '&:hover': {
-                                        fontSize: '1.7rem'
+                                        transform: 'rotate(90deg)',
+                                        transition: 'transform 0.3s ease-in-out'
                                     }
                                 }} className={classes.settingIcon}/>
                         </ListItemIcon>

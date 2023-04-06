@@ -24,8 +24,9 @@ export default function ToDoList({icon, title, time}) {
                         <Grid item>
                             <IconButton aria-label="to-do-list-icon-type" size="large" sx={{ borderRadius:'16px', backgroundColor:'black', color:'white',
                                 '&:hover': {
-                                backgroundColor:'#D1E2E8 !important',
-                                    color:'black'
+                                    backgroundColor:'#D1E2E8 !important',
+                                    color:'black',
+                                    transition: 'color 0.3s ease , background-color 0.4s ease !important',
                             } }}>
                                 {icon}
                             </IconButton>

@@ -79,10 +79,10 @@ const height = '13rem';
 const Chart = () => {
 
     return (
-        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0px', width: '100%', height:'100%', aspectRatio:'1.88/1'}} >
-            <Grid container>
+        <Paper elevation={0} sx={{ borderRadius: 8, backgroundColor: "rgb(209, 226, 232)", padding:'0', width: '100%', height:'100%', aspectRatio:'2/1'}} >
+            <Grid container sx={{ margin: '1rem 0 0 1rem'}}>
                 <Grid item>
-                    <Grid container alignItems='self-end' sx={{padding: '1rem 0 0 1.5rem'}}>
+                    <Grid container alignItems='self-end' sx={{ margin: '0 0 0 1rem'}}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', marginRight:'13rem'}}>Revenue</Typography>
                         <Typography variant="subtitle1" sx={{ fontWeight:'400', fontSize:15}}>Last 7 days VS prior work</Typography>
                     </Grid>
