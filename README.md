@@ -1,4 +1,4 @@
-# Calton Project
+# Dashboard-Mockup
 
 This is a project for the demonstration of skills in modeling a single-page user interface, the following are the task's details
 
